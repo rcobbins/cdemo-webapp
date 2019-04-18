@@ -1,0 +1,20 @@
+version: "2"
+services:
+  webapp:
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      PG_HOST: postgresdb
+      PG_USER: postgres
+      PG_PASS: Cyberark1
+      PG_PORT: 5432
+
+  postgresdb:
+    image: postgres
+    ports: 
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: Cyberark1
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data
